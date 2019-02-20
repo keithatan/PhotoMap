@@ -10,7 +10,7 @@ import UIKit
 import MapKit
 import AlamofireImage
 
-class PhotoMapViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate, LocationsViewControllerDelegate {
+class PhotoMapViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate, LocationsViewControllerDelegate, MKMapViewDelegate {
 
     @IBOutlet weak var mapView: MKMapView!
     
@@ -21,6 +21,8 @@ class PhotoMapViewController: UIViewController, UIImagePickerControllerDelegate,
         
         // One degree of latitude is approximately 111 kilometers (69 miles) at all times.
         // San Francisco Lat, Long = latitude: 37.783333, longitude: -122.416667
+        
+        mapView.delegate = self
         let mapCenter = CLLocationCoordinate2D(latitude: 37.783333, longitude: -122.416667)
         let mapSpan = MKCoordinateSpan(latitudeDelta: 0.1, longitudeDelta: 0.1)
         let region = MKCoordinateRegion(center: mapCenter, span: mapSpan)
@@ -56,6 +58,23 @@ class PhotoMapViewController: UIViewController, UIImagePickerControllerDelegate,
             self.performSegue(withIdentifier: "tagSegue", sender: nil)
         }
         
+    }
+    
+    func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
+        let reuseID = "myAnnotationView"
+        
+        var annotationView = mapView.dequeueReusableAnnotationView(withIdentifier: reuseID)
+        if (annotationView == nil) {
+            annotationView = MKPinAnnotationView(annotation: annotation, reuseIdentifier: reuseID)
+            annotationView!.canShowCallout = true
+            annotationView!.leftCalloutAccessoryView = UIImageView(frame: CGRect(x:0, y:0, width: 50, height:50))
+        }
+        
+        let imageView = annotationView?.leftCalloutAccessoryView as! UIImageView
+        // Add the image you stored from the image picker
+        imageView.image = pickedImage
+        
+        return annotationView
     }
     
     override func didReceiveMemoryWarning() {
