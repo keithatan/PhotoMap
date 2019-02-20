@@ -1,12 +1,11 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11542" systemVersion="15G1108" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" colorMatched="YES" initialViewController="jTD-rF-wIY">
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" colorMatched="YES" initialViewController="jTD-rF-wIY">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11524"/>
-        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -21,17 +20,36 @@
                     <view key="view" contentMode="scaleToFill" id="Lxe-6f-KEH">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="hu3-eY-HWU">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                            </mapView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="thQ-nE-dCy">
+                                <rect key="frame" x="155" y="526" width="64" height="64"/>
+                                <state key="normal" image="camera"/>
+                            </button>
+                        </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="ufw-e1-uLx" firstAttribute="top" secondItem="thQ-nE-dCy" secondAttribute="bottom" constant="77" id="APc-vT-DYa"/>
+                            <constraint firstItem="hu3-eY-HWU" firstAttribute="leading" secondItem="Lxe-6f-KEH" secondAttribute="leading" id="D0T-7z-OGy"/>
+                            <constraint firstItem="hu3-eY-HWU" firstAttribute="top" secondItem="Lxe-6f-KEH" secondAttribute="top" id="JvW-Ft-gIq"/>
+                            <constraint firstItem="thQ-nE-dCy" firstAttribute="leading" secondItem="Lxe-6f-KEH" secondAttribute="leadingMargin" constant="139" id="KjV-ZL-ZRA"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="thQ-nE-dCy" secondAttribute="trailing" constant="140" id="TVx-ln-dbL"/>
+                            <constraint firstAttribute="trailing" secondItem="hu3-eY-HWU" secondAttribute="trailing" id="UaJ-Qo-zyZ"/>
+                            <constraint firstItem="ufw-e1-uLx" firstAttribute="top" secondItem="hu3-eY-HWU" secondAttribute="bottom" id="Yqe-uk-fIk"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="aPF-0T-Ydb"/>
                     <connections>
+                        <outlet property="mapView" destination="hu3-eY-HWU" id="zyK-tU-2lm"/>
                         <segue destination="eZf-Nb-6PU" kind="push" identifier="tagSegue" id="Tzv-N2-17x"/>
                         <segue destination="WeT-38-qba" kind="push" identifier="fullImageSegue" id="B5X-dM-HfZ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fxu-uv-tTR" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="641" y="-3"/>
+            <point key="canvasLocation" x="1024.8" y="-3.1484257871064472"/>
         </scene>
         <!--Full Image View Controller-->
         <scene sceneID="VWW-Rb-sI4">
@@ -50,7 +68,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="QRl-fe-rlf" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="641" y="777"/>
+            <point key="canvasLocation" x="1025.5999999999999" y="698.95052473763121"/>
         </scene>
         <!--Add Location-->
         <scene sceneID="iO8-f3-thv">
@@ -68,7 +86,7 @@
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <searchBar key="tableHeaderView" contentMode="redraw" id="d2g-cJ-R4d">
-                                    <rect key="frame" x="0.0" y="64" width="375" height="44"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                                     <textInputTraits key="textInputTraits"/>
                                 </searchBar>
@@ -77,7 +95,7 @@
                                         <rect key="frame" x="0.0" y="66" width="375" height="61"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="8nY-cI-ARj" id="kg8-aL-hL3">
-                                            <rect key="frame" x="0.0" y="0.0" width="342" height="60"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="342" height="60.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="rf7-oN-H0f">
@@ -88,13 +106,13 @@
                                                     </constraints>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Thai Basil" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ubb-Dd-TaA">
-                                                    <rect key="frame" x="48" y="15" width="278" height="17"/>
+                                                    <rect key="frame" x="48" y="18" width="278" height="17"/>
                                                     <fontDescription key="fontDescription" type="boldSystem" pointSize="14"/>
                                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="101 S Murphy Ave" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HUV-fK-4vy">
-                                                    <rect key="frame" x="48" y="34" width="286" height="15"/>
+                                                    <rect key="frame" x="48" y="37" width="286" height="15"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                                     <color key="textColor" red="0.43902853260869568" green="0.43902853260869568" blue="0.43902853260869568" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <nil key="highlightedColor"/>
@@ -137,7 +155,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jyY-fd-gbB" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1156" y="-4"/>
+            <point key="canvasLocation" x="1849.5999999999999" y="-3.5982008995502253"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="Hmi-Y4-1Mr">
@@ -145,7 +163,7 @@
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="jTD-rF-wIY" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="t5z-BI-kju">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
@@ -155,12 +173,10 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vxO-GI-GdX" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="109" y="-3"/>
+            <point key="canvasLocation" x="174.40000000000001" y="-2.6986506746626691"/>
         </scene>
     </scenes>
-    <simulatedMetricsContainer key="defaultSimulatedMetrics">
-        <simulatedStatusBarMetrics key="statusBar"/>
-        <simulatedOrientationMetrics key="orientation"/>
-        <simulatedScreenMetrics key="destination" type="retina4_7.fullscreen"/>
-    </simulatedMetricsContainer>
+    <resources>
+        <image name="camera" width="64" height="64"/>
+    </resources>
 </document>
