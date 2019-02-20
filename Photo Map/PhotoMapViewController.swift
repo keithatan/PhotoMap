@@ -9,9 +9,11 @@
 import UIKit
 import MapKit
 
-class PhotoMapViewController: UIViewController, LocationsViewControllerDelegate {
+class PhotoMapViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate, LocationsViewControllerDelegate {
 
     @IBOutlet weak var mapView: MKMapView!
+    
+    var pickedImage: UIImage!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -25,7 +27,22 @@ class PhotoMapViewController: UIViewController, LocationsViewControllerDelegate 
         mapView.setRegion(region, animated: false)
 
     }
-
+    
+    @IBAction func openCamera(_ sender: Any) {
+        let picker = UIImagePickerController()
+        picker.delegate = self
+        picker.allowsEditing = true
+        
+        if UIImagePickerController.isSourceTypeAvailable(.camera){
+            picker.sourceType = .camera
+        }
+        else{
+            picker.sourceType = .photoLibrary
+        }
+        
+        present(picker, animated: true, completion: nil)
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.

@@ -27,6 +27,9 @@
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="thQ-nE-dCy">
                                 <rect key="frame" x="155" y="526" width="64" height="64"/>
                                 <state key="normal" image="camera"/>
+                                <connections>
+                                    <action selector="openCamera:" destination="ghP-Ww-KKQ" eventType="touchUpInside" id="5JO-l2-Zcy"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
