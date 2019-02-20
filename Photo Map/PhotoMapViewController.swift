@@ -8,6 +8,7 @@
 
 import UIKit
 import MapKit
+import AlamofireImage
 
 class PhotoMapViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate, LocationsViewControllerDelegate {
 
@@ -41,6 +42,20 @@ class PhotoMapViewController: UIViewController, UIImagePickerControllerDelegate,
         }
         
         present(picker, animated: true, completion: nil)
+    }
+    
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+        let image = info[.editedImage] as! UIImage
+        
+        let size = CGSize(width: 300, height:300)
+        let scaled = image.af_imageScaled(to:size)
+        
+        self.pickedImage = scaled
+        
+        dismiss(animated: true){
+            self.performSegue(withIdentifier: "tagSegue", sender: nil)
+        }
+        
     }
     
     override func didReceiveMemoryWarning() {
