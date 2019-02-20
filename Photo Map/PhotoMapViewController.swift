@@ -63,8 +63,12 @@ class PhotoMapViewController: UIViewController, UIImagePickerControllerDelegate,
         // Dispose of any resources that can be recreated.
     }
     
-    func locationsPickedLocation(controller: LocationsViewController, latitude: CLLocationDegrees, longitude: CLLocationDegrees) {
-        print("location picked")
+    func locationsPickedLocation(controller: LocationsViewController, latitude: CLLocationDegrees, longitude: CLLocationDegrees){
+        let annotation = MKPointAnnotation()
+        let locationCoordinate = CLLocationCoordinate2D(latitude: latitude, longitude: longitude)
+        annotation.coordinate = locationCoordinate
+        annotation.title = String(describing: latitude)
+        mapView.addAnnotation(annotation)
     }
     
     // MARK: - Navigation
