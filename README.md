@@ -1,8 +1,12 @@
-## Starter Project for Photo Map Exercise (Swift)
-![Image](http://i.imgur.com/WIwqNtn.gif)
+# Photomap
+iOS app that allows the user to take a photo, tag it with a location and pin it on the map with all previous pins
 
-- Connects with Foursquare API
-- Implements `LocationsViewController`
-- Placeholders for `PhotoMapViewController` and `FullImageViewController`
+#### Features 
+- [X] Connects with Foursquare API
+- [X] Implements `LocationsViewController`
+- [X] Placeholders for `PhotoMapViewController` and `FullImageViewController`
+
+### Demo GIF 
+<img src='https://github.com/keithatan/PhotoMap/blob/master/PhotoMapGIF.gif?raw=true' title='PhotoMap Walkthrough' width='' alt='Video Walkthrough' />
 
     
